@@ -9,7 +9,7 @@ import NewsService from '../news-service';
 
 const SinglePageNews = (props) => {
     const { TextArea } = Input;
-    const { itemId, news, newsChanged } = props;
+    const { itemId, news, newsChangedd } = props;
     const newsService = new NewsService();
     const { getComment } = newsService;
 
@@ -19,15 +19,20 @@ const SinglePageNews = (props) => {
         name: '',
         body: ''
     });
-
+    
     useEffect(() => {
-        getComment(itemId)
-        .then(data => setElem({
-            postId: data.postId,
-            email: data.email,
-            name: data.name,
-            body: data.body
+        const obj = news.find(item => item.id == itemId);
+        if(obj.isNews) {
+            setElem(obj)
+        } else {
+            getComment(itemId)
+            .then(data => setElem({
+                postId: data.postId,
+                email: data.email,
+                name: data.name,
+                body: data.body
         }))
+        }
     }, []);
     
     const handleEvent = e => {
@@ -38,7 +43,8 @@ const SinglePageNews = (props) => {
     };
 
     const updateNews = () => {
-        newsChanged(news, elem, itemId)
+        const obj = news.findIndex(item => item.id == itemId);
+        newsChangedd(news, elem, obj)
     }; 
 
     return (
@@ -60,7 +66,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        newsChanged: (news, elem, itemId) => dispatch(newsChanged(news, elem, itemId)) 
+        newsChangedd: (news, elem, itemId) => dispatch(newsChanged(news, elem, itemId)) 
     }    
 };
 

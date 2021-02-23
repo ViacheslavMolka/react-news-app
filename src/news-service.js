@@ -1,5 +1,5 @@
 export default class NewsService {
-    getData = async (length) => {
+    getData = async () => {
         const res = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=20')
         const data = await res.json();
         return data;

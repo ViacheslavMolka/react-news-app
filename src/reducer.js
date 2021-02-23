@@ -14,16 +14,16 @@ const reducer = (state = initialState, action) => {
                 news: action.payload
             };
 
-        case 'NEWS_ADD':
-            console.log('123', action.payload)
-            const newArr = [action.payload, ...state.news];
+        case 'NEWS_ADD':            
+            const newArr = [{...action.payload, id: Date.now(), isNews: true}, ...state.news];
+            console.log(newArr)
             return {
                 news: newArr
             };
 
         case 'NEWS_CHANGED':
             const changedElem = action.update;
-            const id = parseInt(action.id - 1);
+            const id = parseInt(action.id);
             let newItem;
             if(action.data) {
                 newItem = [
