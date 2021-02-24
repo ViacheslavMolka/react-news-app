@@ -5,7 +5,7 @@ const Profile = () => {
     if (localStorage.onLoggined == 'true') {
         return (
             <div>
-                <h1>Profile page</h1>
+                <h1 className='text'>Profile page</h1>
             </div>
         )
     }

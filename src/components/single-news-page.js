@@ -4,8 +4,8 @@ import { UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { newsChanged } from '../actions';
-import NewsService from '../news-service';
+import { newsChanged } from '../actions/actions';
+import NewsService from '../service/news-service';
 
 const SinglePageNews = (props) => {
     const { TextArea } = Input;
@@ -22,7 +22,7 @@ const SinglePageNews = (props) => {
     
     useEffect(() => {
         const obj = news.find(item => item.id == itemId);
-        if(obj.isNews) {
+        if(obj.isAddedNews) {
             setElem(obj)
         } else {
             getComment(itemId)
@@ -31,9 +31,10 @@ const SinglePageNews = (props) => {
                 email: data.email,
                 name: data.name,
                 body: data.body
-        }))
+            }))
         }
     }, []);
+
     
     const handleEvent = e => {
         setElem({

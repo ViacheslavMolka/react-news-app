@@ -21,7 +21,7 @@ const Login = ({history}) => {
             localStorage.setItem('onLoggined', true)
             history.push('/profile/')
         } else {
-            alert('Имя пользователя или пароль введены не верно')
+            alert('Имя пользователя или пароль введены не верно!')
         }    
     };
 

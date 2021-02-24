@@ -4,7 +4,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { newsAdd } from '../actions';
+import { newsAdd } from '../actions/actions';
 
 const AddNews = (props) => {
     const { newsAdd } = props;

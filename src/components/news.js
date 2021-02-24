@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import './main.css';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
-import NewsService from '../news-service';
+import NewsService from '../service/news-service';
 import { connect } from 'react-redux';
-import { newsLoaded, newsAdd } from '../actions';
+import { newsLoaded, newsAdd } from '../actions/actions';
 import { Button, Tooltip } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';

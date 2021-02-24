@@ -1,10 +1,10 @@
 import React from 'react';
-import './main.css';
+import '../css/main.css';
 import 'antd/dist/antd.css';
 import HeaderMenu from './header';
 import News from './news';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import SinglePageNews from './singleNewsPage';
+import SinglePageNews from './single-news-page';
 import Login from './loggined';
 import Profile from './profile';
 import AddNews from './add-news';
@@ -14,7 +14,7 @@ const App = () => {
     <Router>
       <div className="App">
         <HeaderMenu/>
-        <Route path='/' render={() => <h1>Welcome</h1>} exact/>
+        <Route path='/' render={() => <h1 className='text'>Welcome to react app!</h1>} exact/>
         <Route path='/news/' exact component={News}/>
         <Route path='/profile/' component={Profile}/>
         <Route path='/login/' component={Login}/>

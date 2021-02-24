@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             };
 
         case 'NEWS_ADD':            
-            const newArr = [{...action.payload, id: Date.now(), isNews: true}, ...state.news];
+            const newArr = [{...action.payload, id: Date.now(), isAddedNews: true}, ...state.news];
             console.log(newArr)
             return {
                 news: newArr

@@ -15,6 +15,12 @@
     margin: 16px 0 16px 24px;
 }
 
+.text {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 .add-btn:hover {
     color: #fff;
 }
